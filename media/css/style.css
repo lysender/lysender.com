@@ -1,0 +1,125 @@
+/*************************************
+   WELCOME TO THE CUSTOM STYLESHEET
+--------------------------------------
+              style.css
+        BlueTrip CSS Framework
+    Put your custom styles in here.
+***************************************/
+
+/**************************************/
+/*           COLOR SCHEME             */
+/**************************************
+- black		#000
+- white		#fff
+-           #
+-           #
+-           #
+***************************************/
+
+/** Remove icons on visited links **/
+body a[href^="http:"]:visited {
+	background: none;
+	padding-right: 2px;
+}
+
+/**************************************/
+/*              GLOBALS               */
+/**************************************/
+#header, #content, #footer {
+	color: #656565;
+}
+
+/**************************************/
+/*              HEADER                */
+/**************************************/
+#header h1 a {
+	text-decoration: none;
+}
+#header .head-block {
+	border-bottom: solid 1px #DDDDDD;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+#header p {
+	margin: 0;
+}
+#menu ul {
+	float: right;
+	width: 320px;
+	text-align: right;
+}
+#menu ul li {
+	display: inline;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 10px;
+}
+#menu a[href^="http:"],
+#menu a[href^="http:"]:visited {
+	background-image: none;
+	padding-right: 2px;
+}
+/**************************************/
+/*             NAVIGATION             */
+/**************************************/
+
+
+
+/**************************************/
+/*            MAIN CONTENT            */
+/**************************************/
+.intro {
+	padding-top: 30px;
+	border-bottom:1em solid #EEEEEE;
+	color:#022F2F;
+	padding-bottom: 2em;
+}
+.intro h2 {
+	font-size: 1.3em;
+	line-height:1.7em;
+	font-weight: normal;
+}
+.intro em {
+	color:#666666;
+	font-style:normal;
+}
+p.tools {
+	margin-top: 1.4em;
+	margin-bottom: 1.6em;
+	padding-bottom: 2.1em;
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+/** Project styles **/
+.project-images ul li {
+	list-style-type: none;
+	float: left;
+	width: 120px;
+}
+.project-images img {
+	max-width: 100px;
+}
+/**************************************/
+/*               FOOTER               */
+/**************************************/
+#footer {
+	border-top: solid 1px #DDDDDD;
+	padding-top: 10px;
+	color:#999999;
+	text-transform:lowercase;
+}
+#footer .copyright {
+	text-align: right;
+}
+#footer a {
+	color: #999;
+	padding: 0;
+	background: none;
+}
+#footer .copyright a {
+	margin-left: 10px;
+}
+#footer a:hover {
+	color: #780c0c;
+}
