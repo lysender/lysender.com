@@ -13,5 +13,6 @@ Thumbs.db
 
 /application/logs
 /application/cache
+/media/pagecache
 nbproject/
 

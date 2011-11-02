@@ -2,3 +2,4 @@ web1:
   shared_writable_dirs:
     - /application/logs
     - /application/cache
+    - /media/pagecache
