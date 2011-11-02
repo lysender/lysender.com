@@ -103,7 +103,7 @@ Kohana::init(array(
  */
 Kohana::$log->attach(new Log_File(
 	'/home/lysender/shared/logs'
-);
+));
 
 /**
  * Attach a file reader to config. Multiple readers are supported.
