@@ -1,6 +1,11 @@
 # Turn on URL rewriting
 RewriteEngine On
 
+# Always use www when in production
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteCond %{HTTP_HOST} ^lysender\.com$
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
 # Installation directory
 RewriteBase /
 
