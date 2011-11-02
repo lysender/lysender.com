@@ -92,15 +92,18 @@ define('APP_VERSION', '0.2.0');
 Kohana::init(array(
 	'base_url'   	=> '/',
 	'index_file' 	=> FALSE,
+	'cache_dir'		=> (Kohana::$environment === Kohana::PRODUCTION ? '/home/lysender/shared/cache' : APPPATH.'cache'),
 	'errors'		=> TRUE,
-	'profile'  		=> (Kohana::$environment == Kohana::DEVELOPMENT),
-	'caching'    	=> (Kohana::$environment == Kohana::PRODUCTION)
+	'profile'  		=> (Kohana::$environment === Kohana::DEVELOPMENT),
+	'caching'    	=> (Kohana::$environment === Kohana::PRODUCTION),
 ));
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
  */
-Kohana::$log->attach(new Log_File(APPPATH.'logs'));
+Kohana::$log->attach(new Log_File(
+	(Kohana::$environment === Kohana::PRODUCTION ? '/home/lysender/shared/logs' : APPPATH.'logs'))
+);
 
 /**
  * Attach a file reader to config. Multiple readers are supported.
