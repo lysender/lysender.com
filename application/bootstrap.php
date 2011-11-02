@@ -92,7 +92,6 @@ define('APP_VERSION', '0.2.0');
 Kohana::init(array(
 	'base_url'   	=> '/',
 	'index_file' 	=> FALSE,
-	'cache_dir'		=> '/var/cache',
 	'errors'		=> TRUE,
 	'profile'  		=> (Kohana::$environment === Kohana::DEVELOPMENT),
 	'caching'    	=> (Kohana::$environment === Kohana::PRODUCTION),
@@ -101,9 +100,7 @@ Kohana::init(array(
 /**
  * Attach the file write to logging. Multiple writers are supported.
  */
-Kohana::$log->attach(new Log_File(
-	'/var/logs'
-));
+Kohana::$log->attach(new Log_File(APPPATH.'logs'));
 
 /**
  * Attach a file reader to config. Multiple readers are supported.

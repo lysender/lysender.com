@@ -11,5 +11,7 @@ Thumbs.db
 *.komodoproject
 *.swp
 
+/application/logs
+/application/cache
 nbproject/
 
