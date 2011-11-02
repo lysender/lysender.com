@@ -1,4 +1,4 @@
-web1:
+web1.1:
   shared_writable_dirs:
-    - /home/lysender/shared/logs
-    - /home/lysender/shared/cache
+    - /var/logs
+    - /var/cache
