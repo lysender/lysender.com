@@ -1,0 +1,3 @@
+shared_writable_dirs:
+  - /home/lysender/shared/logs
+  - /home/lysender/shared/cache
