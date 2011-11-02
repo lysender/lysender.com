@@ -1,4 +1,4 @@
-web1.1:
+web1:
   shared_writable_dirs:
     - /var/logs
     - /var/cache
