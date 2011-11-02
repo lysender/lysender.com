@@ -5,12 +5,12 @@ RewriteEngine On
 RewriteBase /
 
 # Set environment
-SetEnv KOHANA_ENV "production"
+SetEnv KOHANA_ENV "development"
 
 # Cache static resource for 1 year
 <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|css)$">
 Header set Cache-Control "max-age=31536000, public, must-revalidate"
-Header set Expires "Thu, 04 Sat 2012 08:47:32 GMT"
+Header set Expires "Sat, 04 Aug 2012 08:47:32 GMT"
 FileETag -INode MTime Size
 Header unset Last-Modified
 </FilesMatch>
