@@ -5,7 +5,6 @@ RewriteEngine On
 RewriteBase /
 
 # Set environment
-SetEnv KOHANA_ENV "development"
 
 # Cache static resource for 1 year
 <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|css)$">
@@ -23,10 +22,10 @@ Header unset Last-Modified
 
 # BEGIN Page cache
 
-#RewriteRule ^/(.*)/$ /$1 [QSA]
-#RewriteRule ^$ media/pagecache/index.html [QSA]
-#RewriteRule ^([^.]+)/$ media/pagecache/$1/index.html [QSA]
-#RewriteRule ^([^.]+)$ media/pagecache/$1/index.html [QSA]
+RewriteRule ^/(.*)/$ /$1 [QSA]
+RewriteRule ^$ media/pagecache/index.html [QSA]
+RewriteRule ^([^.]+)/$ media/pagecache/$1/index.html [QSA]
+RewriteRule ^([^.]+)$ media/pagecache/$1/index.html [QSA]
 
 # END Page cache
 
