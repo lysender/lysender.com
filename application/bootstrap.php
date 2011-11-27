@@ -118,20 +118,43 @@ if (Kohana::$environment === Kohana::TESTING)
  */
 Kohana::modules($modules);
 
+/** 
+ * Route for chrome-time-in-time-out
+ */
 Route::set('chrometito', 'projects/chrome-time-in-time-out')
-->defaults(array(
-	'controller' => 'projects',
-	'action' => 'chrometito'
-));
+	->defaults(array(
+		'controller' => 'projects',
+		'action' => 'chrometito'
+	));
+
+/** 
+ * Route for extra group of controllers
+ */
+Route::set('extra_sprint', 'extra/sprint(/<letter>)', array('letter' => '[a-z]'))
+	->defaults(array(
+		'controller' => 'sprint',
+		'action' => 'index',
+		'directory' => 'extra'
+	));
+
+/** 
+ * Route for extra group of controllers
+ */
+Route::set('extra', 'extra(/<controller>(/<action>(/<id>)))')
+	->defaults(array(
+		'controller' => 'index',
+		'action' => 'index',
+		'directory' => 'extra'
+	));
 
 /** 
  * Error router
  */
 Route::set('error', 'error/<action>/<origuri>/<message>', array('action' => '[0-9]++', 'origuri' => '.+', 'message' => '.+'))
-->defaults(array(
-    'controller' => 'error',
-	'action'	 => 'index'
-));
+	->defaults(array(
+	    'controller' => 'error',
+		'action'	 => 'index'
+	));
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of

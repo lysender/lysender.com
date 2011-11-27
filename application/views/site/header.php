@@ -8,6 +8,7 @@
 		<li><?php echo HTML::anchor(URL::site('/about', true), 'About') ?></li>
 		<li><?php echo HTML::anchor('http://blog.lysender.com/', 'Blog') ?></li>
 		<li><?php echo HTML::anchor(URL::site('/projects', true), 'Projects') ?></li>
+		<li><?php echo HTML::anchor(URL::site('/extra', true), 'Extras') ?></li>
 		<li><?php echo HTML::anchor(URL::site('/contact', true), 'Contact') ?></li>
 	</ul>
 </div>

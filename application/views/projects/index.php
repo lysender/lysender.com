@@ -7,18 +7,6 @@
 	
 	<p>For almost three (3) years in web development, Lysender develops and
 	maintains the following projects:</p>
-
-	<h3 class="thin">Pet Projects</h3>
-	
-	<div class="project-info span-16">
-		<h5 class="thin positive">1. Google Chrome Timein Timeout Extension</h5>
-		
-		<p>Google Chrome extension that reminds you to time-in and time-out.
-		This is especially helpful when your company uses a computerized/networked
-		time-in and time-out system.</p>
-		
-		<p>Learn more about the <a href="<?php echo URL::site('/projects/chrome-time-in-time-out') ?>">extension</a>.</p>
-	</div>
 	
 	<h3 class="thin">Company Projects</h3>
 	
