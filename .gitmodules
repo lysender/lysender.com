@@ -28,3 +28,6 @@
 [submodule "modules/pagecache"]
 	path = modules/pagecache
 	url = git://github.com/lysender/pagecache.git
+[submodule "modules/kollection"]
+	path = modules/kollection
+	url = git://github.com/lysender/kollection.git

@@ -1,5 +1,5 @@
 <div class="span-2">
-	<img src="<?php echo URL::site('/media/images/portfolio/chrome-tito/64.png') ?>" alt="projects" />
+	<img src="<?php echo $asset->asset_url('/media/images/portfolio/chrome-tito/64.png') ?>" alt="projects" />
 </div>
 
 <div class="about-info span-16 last">
@@ -22,8 +22,8 @@
             <ul>
             <?php foreach ($project_images['chrome-tito'] as $image): ?>
                 <li>
-                    <a href="<?php echo URL::site('/media/images/portfolio/chrome-tito/'.$image) ?>">
-                        <img src="<?php echo URL::site('/media/images/portfolio/chrome-tito/'.$image) ?>" alt="Techtuit project image" />
+                    <a href="<?php echo $asset->asset_url('/media/images/portfolio/chrome-tito/'.$image) ?>">
+                        <img src="<?php echo $asset->asset_url('/media/images/portfolio/chrome-tito/'.$image) ?>" alt="Techtuit project image" />
                     </a>
                 </li>
             <?php endforeach ?>

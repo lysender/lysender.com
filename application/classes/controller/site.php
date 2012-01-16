@@ -21,6 +21,13 @@ abstract class Controller_Site extends Controller_Template
 	 * @var string
 	 */
 	public $footer = 'site/footer';
+
+	/** 
+	 * Asset helper
+	 *
+	 * @var Kollection_Asset
+	 */
+	public $asset;
 	
 	/** 
 	 * before()
@@ -31,16 +38,25 @@ abstract class Controller_Site extends Controller_Template
 	{
 		parent::before();
 
+		// Initialize asset
+		$config = Kohana::$config->load('asset');
+
+		// Load config by environment
+		$this->asset = new Kollection_Asset($config[Kohana::$environment]);
+
+		// Set asset helper to view globally
+		View::set_global('asset', $this->asset);
+
 		if ($this->auto_render)
 		{
 			$this->template->styles = array(
-				'media/css/screen.css'	=> 'screen, projection',
-				'media/css/print.css'	=> 'print',
-				'media/css/style.css'	=> 'screen, projection'
+				$this->asset->asset_url('/media/css/screen.css')	=> 'screen, projection',
+				$this->asset->asset_url('/media/css/print.css')	=> 'print',
+				$this->asset->asset_url('/media/css/style.css')	=> 'screen, projection'
 			);
 
 			$this->template->scripts = array(
-				'media/js/jquery-1.4.2.min.js'
+				$this->asset->asset_url('/media/js/jquery-1.4.2.min.js')
 			);
 		}
 	}

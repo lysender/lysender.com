@@ -1,5 +1,5 @@
 <div class="span-2">
-	<img src="<?php echo URL::site('/media/images/briefcase_64.png') ?>" alt="projects" />
+	<img src="<?php echo $asset->asset_url('/media/images/briefcase_64.png') ?>" alt="projects" />
 </div>
 
 <div class="about-info span-16 last">
@@ -26,8 +26,8 @@
 			<ul>
 			<?php foreach ($project_images['techtuit'] as $image): ?>
 				<li>
-					<a href="<?php echo URL::site('/media/images/portfolio/techtuit/'.$image) ?>">
-						<img src="<?php echo URL::site('/media/images/portfolio/techtuit/'.$image) ?>" alt="Techtuit project image" />
+					<a href="<?php echo $asset->asset_url('/media/images/portfolio/techtuit/'.$image) ?>">
+						<img src="<?php echo $asset->asset_url('/media/images/portfolio/techtuit/'.$image) ?>" alt="Techtuit project image" />
 					</a>
 				</li>
 			<?php endforeach ?>
@@ -51,8 +51,8 @@
 			<ul>
 			<?php foreach ($project_images['rajahtours'] as $image): ?>
 				<li>
-					<a href="<?php echo URL::site('/media/images/portfolio/rajahtours/'.$image) ?>">
-						<img src="<?php echo URL::site('/media/images/portfolio/rajahtours/'.$image) ?>" alt="Rajahtours project image" />
+					<a href="<?php echo $asset->asset_url('/media/images/portfolio/rajahtours/'.$image) ?>">
+						<img src="<?php echo $asset->asset_url('/media/images/portfolio/rajahtours/'.$image) ?>" alt="Rajahtours project image" />
 					</a>
 				</li>
 			<?php endforeach ?>
@@ -74,8 +74,8 @@
 			<ul>
 			<?php foreach ($project_images['daito'] as $image): ?>
 				<li>
-					<a href="<?php echo URL::site('/media/images/portfolio/daito/'.$image) ?>">
-						<img src="<?php echo URL::site('/media/images/portfolio/daito/'.$image) ?>" alt="Daito project image" />
+					<a href="<?php echo $asset->asset_url('/media/images/portfolio/daito/'.$image) ?>">
+						<img src="<?php echo $asset->asset_url('/media/images/portfolio/daito/'.$image) ?>" alt="Daito project image" />
 					</a>
 				</li>
 			<?php endforeach ?>
@@ -94,8 +94,8 @@
 			<ul>
 			<?php foreach ($project_images['manken'] as $image): ?>
 				<li>
-					<a href="<?php echo URL::site('/media/images/portfolio/manken/'.$image) ?>">
-						<img src="<?php echo URL::site('/media/images/portfolio/manken/'.$image) ?>" alt="Manken project image" />
+					<a href="<?php echo $asset->asset_url('/media/images/portfolio/manken/'.$image) ?>">
+						<img src="<?php echo $asset->asset_url('/media/images/portfolio/manken/'.$image) ?>" alt="Manken project image" />
 					</a>
 				</li>
 			<?php endforeach ?>

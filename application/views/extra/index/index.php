@@ -1,5 +1,5 @@
 <div class="span-2">
-	<img src="<?php echo URL::site('/media/images/box-64x64.gif') ?>" alt="projects" />
+	<img src="<?php echo $asset->asset_url('/media/images/box-64x64.gif') ?>" alt="projects" />
 </div>
 
 <div class="about-info span-16 last">

@@ -74,7 +74,7 @@ define('GENERIC_SALT', 'dJkrTa12s9as200d0783dss');
 /**
  * Defines the version of the application
  */
-define('APP_VERSION', '0.2.1');
+define('APP_VERSION', '0.2.2');
 
 /**
  * Initialize Kohana, setting the default options.
@@ -107,7 +107,10 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
  */
 Kohana::$config->attach(new Config_File);
 
-$modules = array('pagecache' => MODPATH.'pagecache');
+$modules = array(
+	'pagecache' => MODPATH.'pagecache',
+	'kollection' => MODPATH.'kollection'
+);
 
 if (Kohana::$environment === Kohana::TESTING)
 {

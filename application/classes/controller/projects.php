@@ -9,8 +9,8 @@ class Controller_Projects extends Controller_Cached
 		$this->template->description = 'Projects developed by Lysender';
 		$this->template->keywords = 'projects, lysender, info, web development, php, zend framework, jquery';
 		$this->template->styles['media/css/jquery.lightbox-0.5.css'] = 'projection, screen';
-		$this->template->scripts[] = 'media/js/jquery.lightbox-0.5.min.js';
-		$this->template->scripts[] = 'media/js/project.js';
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/jquery.lightbox-0.5.min.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/project.js');
 
 		$project_images = array(
 			'techtuit' => array(
@@ -47,8 +47,8 @@ class Controller_Projects extends Controller_Cached
 		$this->template->description = 'Time-in Time-out - Google Chrome Extension';
 		$this->template->keywords = 'google, chrome, extension, timein, timeout, time-in, time-out';
 		$this->template->styles['media/css/jquery.lightbox-0.5.css'] = 'projection, screen';
-		$this->template->scripts[] = 'media/js/jquery.lightbox-0.5.min.js';
-		$this->template->scripts[] = 'media/js/project.js';
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/jquery.lightbox-0.5.min.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/project.js');
 
 		$project_images = array(
 			'chrome-tito' => array(
