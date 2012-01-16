@@ -21,7 +21,7 @@
 	echo HTML::style($style.'?v='.APP_VERSION, array('media' => $media)), "\n" ?>
 
 <!--[if IE]>
-<?php echo HTML::style('media/css/ie.css?v='.APP_VERSION, array('media' => 'screen, projection')) ?>
+<?php echo HTML::style($asset->asset_url('/media/css/ie.css?v='.APP_VERSION), array('media' => 'screen, projection')) ?>
 <![endif]-->
 
 <script type="text/javascript">

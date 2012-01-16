@@ -33,6 +33,6 @@ class Controller_Extra_Sprint extends Controller_Cached
 		$this->template->title = 'Sprint Name Generator'.$title_extra;
 		$this->template->description = 'Extras - Sprint Name Generator'.$title_extra;
 		$this->template->keywords = 'extras, sprint, name, generator';
-		$this->template->scripts[] = 'media/js/sprint.js';
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/sprint.js');
 	}
 }
