@@ -1,0 +1,9 @@
+#encode-w textarea,
+#decode-w textarea {
+	width: 400px;
+	height: 150px;
+}
+
+.push-down-3 {
+	margin-top: 30px;
+}

@@ -35,5 +35,14 @@
 		for you from the list.</p>
 		
 		<p><a href="<?php echo URL::site('/extra/sprint') ?>">Click here to view the generator</a>.</p>
+		
+		<h5 class="thin positive">2. Tools</h5>
+
+		<p>As a developer, there are several repeating tasks that goes over and over again and tools
+		to do it quick are often out of reach. For example, a simple URL decoding takes a quick search
+		on the internet to reach an online URL encoder/decoder. With this, Lysender consolidate this kind of
+		tools in one place.</p>
+		
+		<p><a href="<?php echo URL::site('/extra/tools') ?>">Click here to view the list of available tools</a>.</p>
 	</div>
 </div>
