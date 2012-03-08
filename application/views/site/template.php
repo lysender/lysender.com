@@ -72,6 +72,28 @@
 //]]>
 </script>
 
+<?php if (isset($show_google_plusone) && $show_google_plusone): ?>
+<script type="text/javascript">
+	$(window).load(function(){
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	});
+</script>
+<?php endif ?>
+
+<?php if (isset($show_facebook_like) && $show_facebook_like): ?>
+<script type="text/javascript">
+	$(window).load(function(){
+		$(".fblike-single").each(function(){
+			var t = $(this);
+			var info = t.attr("href");
+			t.replaceWith("<iframe src='" + info + "' scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:35px;\" allowTransparency=\"true\"></iframe>");
+		});
+	});
+</script>
+<?php endif ?>
+
 <?php if (Kohana::$environment == Kohana::PRODUCTION): ?>
 <script type="text/javascript">
 

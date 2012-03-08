@@ -47,7 +47,15 @@
 		</div>
 	</div>
 	
-	<div class="span-22">
+	<div class="span-22 last">
 		<p class="push-down-3">Enjoy and share.</p>
+	</div>
+
+	<div class="span-22 last">
+		<a class="fblike-single" href="http://www.facebook.com/plugins/like.php?href=<?php echo urlencode(URL::site('/extra/tools/urlencode', TRUE)) ?>&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;font&amp;colorscheme=light&amp;height=35"></a>
+	</div>
+	
+	<div class="span-22 last">
+		<g:plusone annotation="inline" href="<?php echo URL::site('/extra/tools/urlencode', TRUE) ?>"></g:plusone>
 	</div>
 </div>
