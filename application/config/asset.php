@@ -3,8 +3,8 @@
 return array(
 	Kohana::DEVELOPMENT => array(
 		'protocol' => 'http',
-		'domain' => 'lysender.darkstar.net',
-		'path_prefix' => ''
+		'domain' => 's.lysender.darkstar.net',
+		'path_prefix' => '/ly'
 	),
 	Kohana::TESTING => array(
 		'protocol' => 'http',
