@@ -32,6 +32,9 @@ body a[href^="http:"]:visited {
 /**************************************/
 /*              HEADER                */
 /**************************************/
+#header {
+	margin-top: 10px;
+}
 #header h1 a {
 	text-decoration: none;
 }
@@ -54,10 +57,14 @@ body a[href^="http:"]:visited {
 	margin-left: 0;
 	padding-left: 10px;
 }
-#menu a[href^="http:"],
-#menu a[href^="http:"]:visited {
-	background-image: none;
-	padding-right: 2px;
+/*** SMALL CAPS ***/
+.head-block p {
+	font-variant: small-caps;
+	letter-spacing: 1px;
+	text-transform: lowercase;
+	font-size:1.2em;
+	font-weight: lighter;
+	padding:0 2px;
 }
 /**************************************/
 /*             NAVIGATION             */
@@ -90,15 +97,22 @@ p.tools {
 	font-size: 1.2em;
 	line-height: 1.5em;
 }
-
-/** Project styles **/
-.project-images ul li {
-	list-style-type: none;
-	float: left;
-	width: 120px;
+.fancy {
+	color: #666;
+	font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif;
+	font-style: italic;
+	font-weight: normal;
 }
-.project-images img {
-	max-width: 100px;
+.thin {
+	font-weight: lighter;
+}
+/** Project styles **/
+.project-info {
+	padding-top: 1em;
+}
+.project-info h4 {
+	padding-bottom: .75em;
+	color: #529214;
 }
 /** Sprint style **/
 #sprint-letters {

@@ -52,7 +52,7 @@ abstract class Controller_Site extends Controller_Template
 			$this->template->styles = array(
 				$this->asset->asset_url('/media/bootstrap/css/bootstrap.min.css') => 'screen, projection',
 				$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css') => 'screen, projection',
-				$this->asset->asset_url('/media/css/xstyle.css')	=> 'screen, projection'
+				$this->asset->asset_url('/media/css/style.css')	=> 'screen, projection'
 			);
 
 			$this->template->scripts = array(

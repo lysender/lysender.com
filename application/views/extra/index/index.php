@@ -1,9 +1,9 @@
-<div class="span12">
+<div class="row">
 	<div class="span1">
 		<img src="<?php echo $asset->asset_url('/media/images/box-64x64.gif') ?>" alt="projects" />
 	</div>
 	
-	<div class="about-info span6">
+	<div class="about-info span8">
 		<h2 class="fancy">Extras</h2>
 		
 		<p>This is the home for Lysender's small projects called "pet projects" and other
@@ -11,8 +11,8 @@
 	
 		<h3 class="thin">Pet Projects</h3>
 		
-		<div class="project-info span6">
-			<h5 class="thin positive">1. Google Chrome Timein Timeout Extension</h5>
+		<div class="project-info">
+			<h4>1. Google Chrome Timein Timeout Extension</h5>
 			
 			<p>Google Chrome extension that reminds you to time-in and time-out.
 			This is especially helpful when your company uses a computerized/networked
@@ -23,8 +23,8 @@
 	
 		<h3 class="thin">Mini-pet Projects</h3>
 		
-		<div class="project-info span6">
-			<h5 class="thin positive">1. Sprint Name Generator</h5>
+		<div class="project-info">
+			<h4>1. Sprint Name Generator</h5>
 	
 			<p>Lysender is a team member which practices agile methodology
 			called Scrum. Every two weeks or so, there are new features that need to be delivered
@@ -37,7 +37,7 @@
 			
 			<p><a href="<?php echo URL::site('/extra/sprint') ?>">Click here to view the generator</a>.</p>
 			
-			<h5 class="thin positive">2. Tools</h5>
+			<h4>2. Tools</h5>
 	
 			<p>As a developer, there are several repeating tasks that goes over and over again and tools
 			to do it quick are often out of reach. For example, a simple URL decoding takes a quick search

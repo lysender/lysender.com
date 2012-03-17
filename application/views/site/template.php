@@ -35,18 +35,20 @@
 
 <body>
 <div class="container">
-	<div id="header" class="row">
-		<?php echo $header ?>
-	</div>
-	
-	<div id="content" class="row">
-		<?php echo $content ?>
-	</div>
-	
-	<div id="footer" class="row">
-		<?php echo $footer ?>
-	</div>
-</div>
+	<div class="row">
+		<div id="header" class="span12">
+			<?php echo $header ?>
+		</div><!-- #header -->
+		
+		<div id="content" class="span12">
+			<?php echo $content ?>
+		</div><!-- #content -->
+		
+		<div id="footer" class="span12">
+			<?php echo $footer ?>
+		</div><!-- #footer -->
+	</div><!-- .row -->
+</div><!-- .container -->
 
 <!-- basic scripts -->
 <?php foreach ($scripts as $script)

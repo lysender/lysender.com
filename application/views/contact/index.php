@@ -1,9 +1,9 @@
-<div class="span12">
+<div class="row">
 	<div class="span1">
 		<img src="<?php echo $asset->asset_url('/media/images/letter_64.png') ?>" alt="contact" />
 	</div>
 	
-	<div class="about-info span6">
+	<div class="about-info span8">
 		<h2 class="fancy">Contact</h2>
 		
 		<p>Because of some web host limitations, Lysender cannot setup a mailer script
