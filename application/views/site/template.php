@@ -4,6 +4,7 @@
 <title><?php echo ( ! empty($title)) ? $title.' :: ' : '' ?>Lysender</title>
 	
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="all" />
 	
 <?php if (isset($description) && $description): ?>
@@ -20,14 +21,8 @@
 <?php foreach ($styles as $style => $media)
 	echo HTML::style($style.'?v='.APP_VERSION, array('media' => $media)), "\n" ?>
 
-<!--[if IE]>
-<?php echo HTML::style($asset->asset_url('/media/css/ie.css?v='.APP_VERSION), array('media' => 'screen, projection')) ?>
-<![endif]-->
-
 <script type="text/javascript">
-//<![CDATA[
 	var base_url = '<?php echo URL::site('/', true) ?>';
-//]]>
 </script>
 	
 <?php if (Kohana::$environment == Kohana::DEVELOPMENT && Kohana::$profiling): ?>
@@ -39,16 +34,18 @@
 </head>
 
 <body>
-<div id="header" class="container">
-	<?php echo $header ?>
-</div>
-
-<div id="content" class="container">
-	<?php echo $content ?>
-</div>
+<div class="container">
+	<div id="header" class="row">
+		<?php echo $header ?>
+	</div>
 	
-<div id="footer" class="container">
-	<?php echo $footer ?>
+	<div id="content" class="row">
+		<?php echo $content ?>
+	</div>
+	
+	<div id="footer" class="row">
+		<?php echo $footer ?>
+	</div>
 </div>
 
 <!-- basic scripts -->
@@ -56,7 +53,6 @@
 	echo HTML::script($script.'?v='.APP_VERSION), "\n" ?>
 
 <script type="text/javascript">
-//<![CDATA[
 	<?php
 		if (isset($head_scripts) && $head_scripts) {
 			echo $head_scripts."\n";
@@ -69,7 +65,6 @@
 			}
 		?>
 	});
-//]]>
 </script>
 
 <?php if (isset($show_google_plusone) && $show_google_plusone): ?>
@@ -108,20 +103,6 @@
   })();
 
 </script>
-
-<!-- Start Quantcast tag -->
-<script type="text/javascript">
-_qoptions={
-qacct:"p-514yFKdjDiF72"
-};
-</script>
-<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
-<noscript>
-<div style="display: none;">
-	<img src="http://pixel.quantserve.com/pixel/p-514yFKdjDiF72.gif" alt="Quantcast" />
-</div>
-</noscript>
-<!-- End Quantcast tag -->
 <?php endif ?>
 </body>
 </html>

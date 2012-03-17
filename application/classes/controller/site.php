@@ -50,13 +50,13 @@ abstract class Controller_Site extends Controller_Template
 		if ($this->auto_render)
 		{
 			$this->template->styles = array(
-				$this->asset->asset_url('/media/css/screen.css')	=> 'screen, projection',
-				$this->asset->asset_url('/media/css/print.css')	=> 'print',
-				$this->asset->asset_url('/media/css/style.css')	=> 'screen, projection'
+				$this->asset->asset_url('/media/bootstrap/css/bootstrap.min.css') => 'screen, projection',
+				$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css') => 'screen, projection',
+				$this->asset->asset_url('/media/css/xstyle.css')	=> 'screen, projection'
 			);
 
 			$this->template->scripts = array(
-				$this->asset->asset_url('/media/js/jquery-1.4.2.min.js')
+				$this->asset->asset_url('/media/js/jquery-1.6.4.min.js')
 			);
 		}
 	}

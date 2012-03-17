@@ -1,48 +1,50 @@
-<div class="span-2">
-	<img src="<?php echo $asset->asset_url('/media/images/box-64x64.gif') ?>" alt="projects" />
-</div>
-
-<div class="about-info span-16 last">
-	<h2 class="fancy">Extras</h2>
-	
-	<p>This is the home for Lysender's small projects called "pet projects" and other
-	extra projects that randomly comes up.</p>
-
-	<h3 class="thin">Pet Projects</h3>
-	
-	<div class="project-info span-16">
-		<h5 class="thin positive">1. Google Chrome Timein Timeout Extension</h5>
-		
-		<p>Google Chrome extension that reminds you to time-in and time-out.
-		This is especially helpful when your company uses a computerized/networked
-		time-in and time-out system.</p>
-		
-		<p>Learn more about the <a href="<?php echo URL::site('/projects/chrome-time-in-time-out') ?>">extension</a>.</p>
+<div class="span12">
+	<div class="span1">
+		<img src="<?php echo $asset->asset_url('/media/images/box-64x64.gif') ?>" alt="projects" />
 	</div>
-
-	<h3 class="thin">Mini-pet Projects</h3>
 	
-	<div class="project-info span-16">
-		<h5 class="thin positive">1. Sprint Name Generator</h5>
-
-		<p>Lysender is a team member which practices agile methodology
-		called Scrum. Every two weeks or so, there are new features that need to be delivered
-		to the e-commerce site and this period is called sprint. Each sprint has a name,
-		composed of 2 words starting with the same letter (adjective noun). It starts with
-		letter A, for example Agile Aadvark was their first sprint.</p>
-
-		<p>This sprint name generator lets you choose a letter and a sprint name is generated
-		for you from the list.</p>
+	<div class="about-info span6">
+		<h2 class="fancy">Extras</h2>
 		
-		<p><a href="<?php echo URL::site('/extra/sprint') ?>">Click here to view the generator</a>.</p>
+		<p>This is the home for Lysender's small projects called "pet projects" and other
+		extra projects that randomly comes up.</p>
+	
+		<h3 class="thin">Pet Projects</h3>
 		
-		<h5 class="thin positive">2. Tools</h5>
-
-		<p>As a developer, there are several repeating tasks that goes over and over again and tools
-		to do it quick are often out of reach. For example, a simple URL decoding takes a quick search
-		on the internet to reach an online URL encoder/decoder. With this, Lysender consolidate this kind of
-		tools in one place.</p>
+		<div class="project-info span6">
+			<h5 class="thin positive">1. Google Chrome Timein Timeout Extension</h5>
+			
+			<p>Google Chrome extension that reminds you to time-in and time-out.
+			This is especially helpful when your company uses a computerized/networked
+			time-in and time-out system.</p>
+			
+			<p>Learn more about the <a href="<?php echo URL::site('/projects/chrome-time-in-time-out') ?>">extension</a>.</p>
+		</div>
+	
+		<h3 class="thin">Mini-pet Projects</h3>
 		
-		<p><a href="<?php echo URL::site('/extra/tools') ?>">Click here to view the list of available tools</a>.</p>
+		<div class="project-info span6">
+			<h5 class="thin positive">1. Sprint Name Generator</h5>
+	
+			<p>Lysender is a team member which practices agile methodology
+			called Scrum. Every two weeks or so, there are new features that need to be delivered
+			to the e-commerce site and this period is called sprint. Each sprint has a name,
+			composed of 2 words starting with the same letter (adjective noun). It starts with
+			letter A, for example Agile Aadvark was their first sprint.</p>
+	
+			<p>This sprint name generator lets you choose a letter and a sprint name is generated
+			for you from the list.</p>
+			
+			<p><a href="<?php echo URL::site('/extra/sprint') ?>">Click here to view the generator</a>.</p>
+			
+			<h5 class="thin positive">2. Tools</h5>
+	
+			<p>As a developer, there are several repeating tasks that goes over and over again and tools
+			to do it quick are often out of reach. For example, a simple URL decoding takes a quick search
+			on the internet to reach an online URL encoder/decoder. With this, Lysender consolidate this kind of
+			tools in one place.</p>
+			
+			<p><a href="<?php echo URL::site('/extra/tools') ?>">Click here to view the list of available tools</a>.</p>
+		</div>
 	</div>
 </div>
