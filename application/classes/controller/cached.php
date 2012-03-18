@@ -10,9 +10,13 @@ abstract class Controller_Cached extends Controller_Site
 	{
 		parent::after();
 		
-		$uri = Arr::get($_SERVER, 'REQUEST_URI', $this->request->uri());
-		
-		Pagecache::factory($uri)
-			->write($this->response->body());
+		// Only enable page caching on production environment
+		if (Kohana::$environment === Kohana::PRODUCTION)
+		{
+			$uri = Arr::get($_SERVER, 'REQUEST_URI', $this->request->uri());
+			
+			Pagecache::factory($uri)
+				->write($this->response->body());	
+		}
 	}
 }
