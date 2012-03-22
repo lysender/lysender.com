@@ -12,7 +12,7 @@
 		<h3 class="thin">Pet Projects</h3>
 		
 		<div class="project-info">
-			<h4>1. Google Chrome Timein Timeout Extension</h5>
+			<h4>1. Google Chrome Timein Timeout Extension</h4>
 			
 			<p>Google Chrome extension that reminds you to time-in and time-out.
 			This is especially helpful when your company uses a computerized/networked
@@ -24,7 +24,7 @@
 		<h3 class="thin">Mini-pet Projects</h3>
 		
 		<div class="project-info">
-			<h4>1. Sprint Name Generator</h5>
+			<h4>1. Sprint Name Generator</h4>
 	
 			<p>Lysender is a team member which practices agile methodology
 			called Scrum. Every two weeks or so, there are new features that need to be delivered
@@ -37,7 +37,7 @@
 			
 			<p><a href="<?php echo URL::site('/extra/sprint') ?>">Click here to view the generator</a>.</p>
 			
-			<h4>2. Tools</h5>
+			<h4>2. Tools</h4>
 	
 			<p>As a developer, there are several repeating tasks that goes over and over again and tools
 			to do it quick are often out of reach. For example, a simple URL decoding takes a quick search
