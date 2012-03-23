@@ -18,5 +18,13 @@
 			
 			<p><a href="<?php echo URL::site('/extra/tools/urlencode') ?>">URL Encoder/Decoder</a>.</p>
 		</div>
+		
+		<div class="project-info">
+			<h4>2. World Clock</h4>
+			
+			<p>Create world clock widgets for different timezones. This is needed when working with other people on different timezones.</p>
+			
+			<p><a href="<?php echo URL::site('/extra/tools/worldclock') ?>">World Clock</a>.</p>
+		</div>
 	</div>
 </div>

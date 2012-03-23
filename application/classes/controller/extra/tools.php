@@ -18,7 +18,7 @@ class Controller_Extra_Tools extends Controller_Cached
 
 		$this->template->title = 'Tools :: URL Encoder/Decoder';
 		$this->template->description = 'Extras - Tools - URL Encoder/Decoder';
-		$this->template->keywords = 'extras, tools, url, encode, decode';
+		$this->template->keywords = 'url, encode, decode';
 		
 		$this->template->scripts[] = $this->asset->asset_url('/media/js/urlencode.js');
 		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
@@ -26,5 +26,50 @@ class Controller_Extra_Tools extends Controller_Cached
 		
 		$this->template->show_google_plusone = true;
 		$this->template->show_facebook_like = true;
+	}
+	
+	public function action_worldclock()
+	{
+		$this->view = View::factory('extra/tools/worldclock');
+
+		$this->template->title = 'Tools :: World Clock';
+		$this->template->description = 'Extras - Tools - World Clock';
+		$this->template->keywords = 'world, clock, timezone';
+		
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/worldclock.js');
+		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
+		$this->template->styles[$this->asset->asset_url('/media/css/tools.css')] = 'screen, projection';
+		
+		$this->template->show_google_plusone = true;
+		$this->template->show_facebook_like = true;
+		
+		// Generate timezone list and offsets
+		$tzlist = array();
+		$regions = $regions = array(
+			'Africa' => DateTimeZone::AFRICA,
+			'America' => DateTimeZone::AMERICA,
+			'Antarctica' => DateTimeZone::ANTARCTICA,
+			'Asia' => DateTimeZone::ASIA,
+			'Atlantic' => DateTimeZone::ATLANTIC,
+			'Europe' => DateTimeZone::EUROPE,
+			'Indian' => DateTimeZone::INDIAN,
+			'Pacific' => DateTimeZone::PACIFIC
+		);
+		
+		foreach ($regions as $name => $mask)
+		{
+			$region_tz = DateTimeZone::listIdentifiers($mask);
+			$tmp = array();
+			
+			foreach ($region_tz as $tzmask)
+			{
+				$d = new DateTime('now', new DateTimeZone($tzmask));
+				$tmp[$tzmask] = $d->getOffset();
+			}
+			
+			$tzlist[$name] = $tmp;
+		}
+		
+		$this->view->tzlist = $tzlist;
 	}
 }
