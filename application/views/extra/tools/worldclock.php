@@ -25,18 +25,22 @@
 				<form class="form-horizontal">
 					<fieldset>
 						<legend>Add a new World Clock Widget</legend>
-						<?php foreach ($tzlist as $region => $list): ?>
 						<div class="control-group">
-							<label class="control-label"><?php echo $region ?></label>
-							<div class="controls">
-								<select>
-								<?php foreach ($list as $tz => $offset): ?>
-									<option><?php echo $tz ?></option>
-								<?php endforeach ?>
-								</select>
+							<label class="control-label">Select region</label>
+							<div class="controls" id="region-select-w">
+								<select id="regions" name="regions"></select>
 							</div>
 						</div>
-						<?php endforeach ?>
+						<div class="control-group">
+							<label class="control-label">Select timezone</label>
+							<div class="controls">
+								<select id="timezone" name="timezone" disabled="disabled"></select>
+							</div>
+						</div>
+						<div class="form-actions">
+							<input type="submit" name="add" id="add" class="btn btn-primary" value="Add new clock" />
+							<input type="button" name="wala" id="wala" class="btn" value="Wala lang" />
+						</div>
 					</fieldset>
 				</form>
 			</div>
