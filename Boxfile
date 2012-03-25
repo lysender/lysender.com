@@ -3,3 +3,5 @@ web1:
     - /application/logs
     - /application/cache
     - /media/pagecache
+  after_deploy:
+    - "rm -rf media/pagecache/*"

@@ -74,7 +74,7 @@ define('GENERIC_SALT', 'dJkrTa12s9as200d0783dss');
 /**
  * Defines the version of the application
  */
-define('APP_VERSION', '0.3.0');
+define('APP_VERSION', '0.3.1');
 
 /**
  * Initialize Kohana, setting the default options.
