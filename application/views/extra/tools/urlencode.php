@@ -77,7 +77,7 @@
 			</div>
 			
 			<div class="span11">
-				<p class="push-down-3">Enjoy and share.</p>
+				<p class="push-down-3">For comments and suggestions, <a href="http://blog.lysender.com/2012/03/just-another-url-encoderdecoder/">see the blog post</a>. Enjoy and share.</p>
 			</div>
 		
 			<div class="span11">
