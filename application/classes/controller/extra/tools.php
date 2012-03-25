@@ -36,6 +36,8 @@ class Controller_Extra_Tools extends Controller_Cached
 		$this->template->description = 'Extras - Tools - World Clock';
 		$this->template->keywords = 'world, clock, timezone';
 		
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/json2_min.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/cookiegroup.js');
 		$this->template->scripts[] = $this->asset->asset_url('/media/js/worldclock.js');
 		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
 		$this->template->styles[$this->asset->asset_url('/media/css/tools.css')] = 'screen, projection';

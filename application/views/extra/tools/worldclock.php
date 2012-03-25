@@ -15,6 +15,18 @@
 			
 			<div class="span11">
 				<h2 id="clock">This is the clock.</h2>
+				<div class="span3">
+					<p id="timezone-0">Timezone</p>
+					<p id="week-day-0">Week day</p>
+					<p id="date-0">Date</p>
+					<p id="time-0">Time</p>
+				</div>
+				<div class="span3">
+					<p id="timezone-1">Timezone</p>
+					<p id="week-day-1">Week day</p>
+					<p id="date-1">Date</p>
+					<p id="time-1">Time</p>
+				</div>
 			</div>
 			
 			<div class="span11">
@@ -38,8 +50,7 @@
 							</div>
 						</div>
 						<div class="form-actions">
-							<input type="submit" name="add" id="add" class="btn btn-primary" value="Add new clock" />
-							<input type="button" name="wala" id="wala" class="btn" value="Wala lang" />
+							<input type="submit" name="add" id="add" class="btn btn-primary" value="Add new clock" disabled="disabled" />
 						</div>
 					</fieldset>
 				</form>
