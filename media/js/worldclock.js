@@ -1,33 +1,70 @@
 $(function(){
 	
-	/**
-	 * List of week days
-	 *
-	 * @type Array
-	 */
-	var weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-	
-	/**
-	 * Returns the current time as string
-	 *
-	 * @returns string
-	 */
-	function getCurrentDateTime() {
-		var today = new Date();
-		var dString = "";
+	var wcWidgets = [];
+
+	function loadWcWidgets() {
+		var cg = CookieGroupHandler.getCookieInstance('lys10years');
+		var widgets = cg.getValue('widgets');
+		var rawms = new Date().getTime();
 		
-		// Get the day of the week
-		dString += weekDays[today.getDay()];
-		
-		// Get the date string
-		dString += ", " + today.getFullYear() + "-" + today.getMonth() + "-" + today.getDate();
-		
-		// Get the time string in millitary format
-		dString += " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-		
-		return dString;
+		if (widgets && typeof widgets == "object" && widgets.length) {
+			for (var i in widgets) {
+				if (typeof widgets[i] == "object" && widgets[i] && widgets[i].length == 2) {
+					var wc = new WorldClock(rawms, widgets[i][1], widgets[i][0]);
+					var wcw = new WorldClockWidget("workdclock-widget-w", "wid-" + i, "span2");
+					wcw.attach(wc);
+
+					wcWidgets.push([wcw, widgets[i]]);
+				}
+			}
+		}
 	}
-	
+
+	function refreshWcWidgets() {
+		var rawms = new Date().getTime();
+
+		for (var i in wcWidgets) {
+			var wc = new WorldClock(rawms, wcWidgets[i][1][1], wcWidgets[i][1][0]);
+			wcWidgets[i][0].refresh(wc);
+		}
+
+		setTimeout(refreshWcWidgets, 1000);
+	}
+
+	function addWcWidget(tz, offset) {
+		var rawms = new Date().getTime();
+		var index = wcWidgets.length;
+		var wc = new WorldClock(rawms, offset, tz);
+		var wcw = new WorldClockWidget("workdclock-widget-w", "wid-" + index, "span2");
+		wcw.attach(wc);
+
+		wcWidgets.push([wcw, [tz, offset]]);
+	}
+
+	function deleteWcWidget(index) {
+		if (typeof wcWidgets[index] == "object") {
+			var widgetId = "worldclock-widget-" + wcWidgets[index][0].name;
+			var elem = $("#" + widgetId);
+
+			if (elem.length) {
+				elem.remove();
+			}
+
+			wcWidgets.splice(index, 1);
+
+			// Delete from cookie
+			var cg = CookieGroupHandler.getCookieInstance('lys10years');
+			var widgets = cg.getValue('widgets');
+
+			if (widgets && typeof widgets[index] !== "undefined") {
+				widgets.splice(index, 1);
+			}
+
+			cg.setValue('widgets', widgets);
+	        cg.writeGroup();
+		}
+	}
+
 	function loadRegions() {
 		var regions = [];
 		
@@ -53,6 +90,10 @@ $(function(){
 			for (var k in tzlist[region]) {
 				tz[k] = tzlist[region][k];
 			}
+
+			$("#add-tz").removeAttr("disabled");
+		} else {
+			$("#add-tz").attr("disabled", "disabled");
 		}
 		
 		var s = '';
@@ -64,39 +105,59 @@ $(function(){
 		$("#timezone").removeAttr("disabled").html(s);
 	}
 	
-	function tick() {
-		var rawms = new Date().getTime();
-		var wc = new WorldClock(rawms, 0, "UTC")
-		$("#clock").text(wc.currentDay + " " + wc.currentDate + " " + wc.currentTime);
-
-		var wc0 = new WorldClock(rawms, 28800, "Asia/Manila");
-		$("#timezone-0").text(wc0.timezone);
-		$("#week-day-0").text(wc0.currentDay);
-		$("#date-0").text(wc0.currentDate);
-		$("#time-0").text(wc0.currentTime);
-
-		var wc1 = new WorldClock(rawms, -14400, "America/New_York");
-		$("#timezone-1").text(wc1.timezone);
-		$("#week-day-1").text(wc1.currentDay);
-		$("#date-1").text(wc1.currentDate);
-		$("#time-1").text(wc1.currentTime);
-
-		setTimeout(tick, 1000);
+	function resetAddWidgetForm() {
+		$("#regions").find("option:selected").removeAttr("selected");
+		$("#timezone").html('').attr("disabled", "disabled");
+		$("#add-tz").attr("disabled", "disabled");
 	}
-	
-	tick();
+
 	loadRegions();
-	
+	loadWcWidgets();
+	setTimeout(refreshWcWidgets, 1000);
+
+	$("#add-tz").click(function(){
+		var cg = CookieGroupHandler.getCookieInstance('lys10years');
+		var widgets = cg.getValue('widgets');
+		var wconfig = [];
+		var tz = $("#timezone");
+
+		if (tz.length && tz.val()) {
+			wconfig = [tz.find(":selected").text(), tz.val()];
+		}
+
+		if (widgets) {
+			widgets.push(wconfig);
+		} else {
+			widgets = [wconfig];
+		}
+
+		cg.setValue('widgets', widgets);
+        cg.writeGroup();
+
+        // Add widget now
+        addWcWidget(wconfig[0], wconfig[1]);
+
+        // Reset dropdowns
+        resetAddWidgetForm();
+	});
+
 	$("#region-select-w").delegate("#regions", "change", function(){
 		loadTimezones(this.value);	
+	});
+
+	$("#workdclock-widget-w").delegate("..worldclock-widget .close", "click", function(){
+		var id = this.id + "";
+		var index = parseInt(id.split("-").pop());
+		
+		if (!isNaN(index)) {
+			deleteWcWidget(index);
+		}
 	});
 });
 
 
-
-
-function WorldClockWidget(parentDiv, name, wc) {
-	this.init(parentDiv, name, wc);
+function WorldClockWidget(parentDiv, name, className) {
+	this.init(parentDiv, name, className);
 }
 
 WorldClockWidget.prototype = {
@@ -116,11 +177,11 @@ WorldClockWidget.prototype = {
 	name: null,
 
 	/** 
-	 * WorldClock object
+	 * The html class to be used by this widget
 	 *
-	 * @type WorldClock
+	 * @type String
 	 */
-	wc: null,
+	className: null,	
 
 	/** 
 	 * Whether or not the widget is already attached to parentDiv
@@ -130,6 +191,12 @@ WorldClockWidget.prototype = {
 	attached: false,
 
 	/** 
+	 * jQuery widget element
+	 *
+	 */
+	widget: null,
+
+	/** 
 	 * Initialize the widget
 	 *
 	 * @param String
@@ -137,37 +204,73 @@ WorldClockWidget.prototype = {
 	 * @param WorldClock
 	 * @return WorldClockWidget
 	 */
-	init: function(parentDiv, name, wc) {
+	init: function(parentDiv, name, className) {
 		this.parentDiv = parentDiv;
 		this.name = name;
-		this.wc = wc;
+		this.className = className;
 
 		return this;
 	},
 
 	/** 
 	 * Attach the widget to the parent div and display it
-	 *
+	 * 
+	 * @param WorldClock
 	 * @return WorldClockWidget
 	 */
-	attach: function() {
+	attach: function(wc) {
 		if (!this.attached) {
 			var s = '';
+			var cls = "worldclock-widget";
+			if (this.className) {
+				cls += " " + this.className;
+			}
 
-			
+			// Generate the html content for the widget
+			s += '<div id="worldclock-widget-' + this.name + '" class="' + cls + '">';
+			s += '<a class="close" id="delete-' + this.name + '" href="javascript:void(0);">&times;</a>';
+			s += '<p class="wc-timezone">' + this.formatTimezoneLabel(wc.timezone) + '</p>';
+			s += '<p class="wc-week-day">' + wc.currentDay + '</p>';
+			s += '<p class="wc-date">' + wc.currentDate + '</p>';
+			s += '<p class="wc-time">' + wc.currentTime + '</p>';
+			s += '</div>';
+
+			$("#" + this.parentDiv).append(s);
+			var element = $("#worldclock-widget-" + this.name);
+
+			if (element.length) {
+				this.attached = true;
+				this.widget = element;
+			}
 		}
 
 		return this;
 	},
 
+	formatTimezoneLabel: function(tz) {
+		var i = tz.indexOf('/');
+		var ret = tz;
+
+		if (i > 0) {
+			ret = tz.substring(i+1, tz.length);
+		}
+
+		return ret.replace('_', ' ');
+	},
+
 	/** 
 	 * Refreshes the widget with new informat
 	 *
+	 * @param WorldClock
 	 * @return WorldClockWidget
 	 */
-	refresh: function() {
-		if (this.attached) {
-			// foo
+	refresh: function(wc) {
+		if (this.attached && this.widget) {
+			if (this.widget.length) {
+				this.widget.find('.wc-week-day').text(wc.currentDay);
+				this.widget.find('.wc-date').text(wc.currentDate);
+				this.widget.find('.wc-time').text(wc.currentTime);
+			}
 		}
 
 		return this;

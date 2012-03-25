@@ -172,11 +172,11 @@ CookieGroup.prototype = {
 
 window.CookieGroupHandler = {
     config: {
-        'apw30days': {
-            'expire': 2592000,
+        'lys10years': {
+            'expire': 315360000,
             'path': '/'
         },
-        'apwsession': {
+        'lyssession': {
             'expire': 0,
             'path': '/'
         }
@@ -202,7 +202,7 @@ window.CookieGroupHandler = {
 * Sample usage below
 (function(){
     $(function(){
-        cg = new CookieGroup('apw30days', 2592000, '/', window.location.hostname);
+        cg = new CookieGroup('lys30days', 2592000, '/', window.location.hostname);
         cg.fetchGroup();
         //cg.setValue('atcdate', '2011-12-21');
         //cg.setValue('checkoutdate', '2011-12-25');
@@ -211,7 +211,7 @@ window.CookieGroupHandler = {
         console.log(cg.getValue('bannerclosed'));
         cg.writeGroup();
 
-        cg2 = new CookieGroup('apwsession', 0, '/', window.location.hostname);
+        cg2 = new CookieGroup('lyssession', 0, '/', window.location.hostname);
         cg2.fetchGroup();
         //cg2.setValue('isCheckout', 1);
         //cg2.setValue('event', 'scCheckout');
@@ -221,7 +221,7 @@ window.CookieGroupHandler = {
         console.log(cg2.getValue('event'));
         cg2.writeGroup();
 
-        cg3 = new CookieGroup('apw45days', 3888000, '/', window.location.hostname);
+        cg3 = new CookieGroup('lys45days', 3888000, '/', window.location.hostname);
         cg3.fetchGroup();
         //cg3.setValue('ORDERID', '123456');
         //cg3.setValue('SHOPPERID', '14344');

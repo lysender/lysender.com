@@ -12,31 +12,15 @@
 				<p>This tool allows you to define your word clock widget as many as you like and display them for quick reference.<br />
 				The widgets created are saved so that they will be displayed on your next visit.</p>
 			</div>
-			
-			<div class="span11">
-				<h2 id="clock">This is the clock.</h2>
-				<div class="span3">
-					<p id="timezone-0">Timezone</p>
-					<p id="week-day-0">Week day</p>
-					<p id="date-0">Date</p>
-					<p id="time-0">Time</p>
-				</div>
-				<div class="span3">
-					<p id="timezone-1">Timezone</p>
-					<p id="week-day-1">Week day</p>
-					<p id="date-1">Date</p>
-					<p id="time-1">Time</p>
-				</div>
+
+			<div class="span11" id="workdclock-widget-w">
+				<h2 class="thin">This is the clock.</h2>
 			</div>
 			
 			<div class="span11">
-				<h3 class="thin">Add a new world clock widget</h3>
-				
-				<p>Add now!</p>
-				
 				<form class="form-horizontal">
 					<fieldset>
-						<legend>Add a new World Clock Widget</legend>
+						<legend>Add a new world clock widget</legend>
 						<div class="control-group">
 							<label class="control-label">Select region</label>
 							<div class="controls" id="region-select-w">
@@ -50,7 +34,7 @@
 							</div>
 						</div>
 						<div class="form-actions">
-							<input type="submit" name="add" id="add" class="btn btn-primary" value="Add new clock" disabled="disabled" />
+							<input type="button" name="add-tz" id="add-tz" class="btn btn-primary icon-plus" value="Add new clock" disabled="disabled" />
 						</div>
 					</fieldset>
 				</form>

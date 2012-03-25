@@ -47,17 +47,22 @@ class Controller_Extra_Tools extends Controller_Cached
 		
 		// Generate timezone list and offsets
 		$tzlist = array();
-		$regions = $regions = array(
+		$regions = array(
 			'Africa' => DateTimeZone::AFRICA,
 			'America' => DateTimeZone::AMERICA,
 			'Antarctica' => DateTimeZone::ANTARCTICA,
+			'Arctic' => DateTimeZone::ARCTIC,
 			'Asia' => DateTimeZone::ASIA,
 			'Atlantic' => DateTimeZone::ATLANTIC,
+			'Australia' => DateTimeZone::AUSTRALIA,
 			'Europe' => DateTimeZone::EUROPE,
 			'Indian' => DateTimeZone::INDIAN,
-			'Pacific' => DateTimeZone::PACIFIC
+			'Pacific' => DateTimeZone::PACIFIC,
+			//'UTC' => DateTimeZone::UTC,
+			//'ALL' => DateTimeZone::ALL,
+			'ALL' => DateTimeZone::ALL_WITH_BC,
 		);
-		
+		$all = array();
 		foreach ($regions as $name => $mask)
 		{
 			$region_tz = DateTimeZone::listIdentifiers($mask);
