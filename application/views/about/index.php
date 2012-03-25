@@ -7,12 +7,13 @@
 		<h2 class="fancy">About</h2>
 		
 		<p>Lysender is a <?php echo $age ?> year-old web developer from
-		Antipolo City, Rizal Philippines. He is currently employed as an IT engineer for
-		a Japanese company - Esperant System Philippines Corp. He develops web based
-		applications usually designed for coporate LAN for various clients and
-		also develops Internet based web applications. Currently, he handles
-		the maintenance and support for previous projects as well as develop
-		new systems for new projects.</p>
+		Antipolo City, Rizal Philippines. He is currently employed as a PHP Developer
+		on a large Auto Parts retailer in the US. He develops and maintains e-commerce web
+		sites and develops site enhancements to better serve the customers and
+		to put a competitive advantage on the market.</p>
+
+		<p>As a team member practicing agile methodology - SCRUM, his main rule is 
+		a core developer for front-end enhancements and initiatives with new technologies.</p>
 		
 		<p>For most of his projects, he often used PHP and MySQL as server side
 		technologies and develop the system using Zend Framework and jQuery
