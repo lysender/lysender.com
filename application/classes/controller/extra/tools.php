@@ -79,4 +79,24 @@ class Controller_Extra_Tools extends Controller_Cached
 		
 		$this->template->head_scripts = sprintf('var tzlist = %s;', json_encode($tzlist));
 	}
+
+	public function action_base64()
+	{
+		$this->view = View::factory('extra/tools/base64');
+
+		$this->template->title = 'Tools :: Base64 Encoder/Decoder';
+		$this->template->description = 'Extras - Tools - Base64 Encoder/Decoder';
+		$this->template->keywords = 'base64, encode, decode';
+		
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/utf8_encode.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/utf8_decode.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/base64_encode.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/base64_decode.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/base64.js');
+		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
+		$this->template->styles[$this->asset->asset_url('/media/css/tools.css')] = 'screen, projection';
+		
+		$this->template->show_google_plusone = true;
+		$this->template->show_facebook_like = true;
+	}
 }

@@ -26,5 +26,13 @@
 			
 			<p><a href="<?php echo URL::site('/extra/tools/worldclock') ?>">World Clock</a>.</p>
 		</div>
+
+		<div class="project-info">
+			<h4>3. Base64 Encoder/Decoder</h4>
+			
+			<p>Base64 encode a string or base64 decode it back. Usefull when working with base64 encoded data.</p>
+			
+			<p><a href="<?php echo URL::site('/extra/tools/base64') ?>">Base64 Encoder/Decoder</a>.</p>
+		</div>
 	</div>
 </div>
