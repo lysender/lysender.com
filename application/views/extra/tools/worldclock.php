@@ -7,14 +7,20 @@
 		<div class="row">
 	
 			<div class="span11">
-				<h2 class="fancy">World Clock</h2>
+				<h2 class="fancy"><a href="/extra/tools/worldclock">World Clock</a></h2>
 				
 				<p>This tool allows you to define your word clock widget as many as you like and display them for quick reference.<br />
 				The widgets created are saved so that they will be displayed on your next visit.</p>
 			</div>
 
+			<?php if (isset($selected_timezone) && isset($formatted_timezone)): ?>
+				<div class="span11" id="worldclock-widget-current-w">
+					<h2 class="thin">Current time for <?php echo HTML::chars($formatted_timezone) ?></h2>
+				</div>
+			<?php endif ?>
+
 			<div class="span11" id="workdclock-widget-w">
-				<h2 class="thin">This is the clock.</h2>
+				<h2 class="thin">Your World Clock widgets</h2>
 			</div>
 			
 			<div class="span11">
@@ -40,6 +46,15 @@
 				</form>
 			</div>
 			
+			<div class="span11">
+				<p>Timezones around the world.</p>
+				<ul id="timezone-list">
+					<?php foreach ($timezones as $tz => $offset): ?>
+						<li><a href="/extra/tools/worldclock/<?php echo HTML::chars($tz) ?>"><?php echo HTML::chars($tz) ?></a></li>
+					<?php endforeach ?>
+				</ul>
+			</div>
+
 			<div class="span11">
 				<p class="push-down-3">For comments and suggestions, <a href="http://blog.lysender.com/2012/03/yet-another-world-clock/">see the blog post</a>. Enjoy and share.</p>
 			</div>

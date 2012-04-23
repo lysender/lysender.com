@@ -1,6 +1,9 @@
 $(function(){
 	
 	var wcWidgets = [];
+	var currentTimezoneWidget = null;
+	var currentTimezone = null;
+	var currentTimezoneOffset = null;
 
 	function loadWcWidgets() {
 		var cg = CookieGroupHandler.getCookieInstance('lys10years');
@@ -13,7 +16,7 @@ $(function(){
 				var tz = widgets[i];
 				var offset = getTimezonOffsetFromList(tz);
 
-				if (tz && offset) {
+				if (tz && offset !== null) {
 					var wc = new WorldClock(rawms, offset, tz);
 					var wcw = new WorldClockWidget("workdclock-widget-w", "wid-" + i, "span2");
 					wcw.attach(wc);
@@ -30,12 +33,30 @@ $(function(){
 		}
 	}
 
+	function loadCurrentTimezoneWidget(timezone) {
+		var offset = getTimezonOffsetFromList(timezone);
+
+		if (timezone && offset !== null) {
+			var wc = new WorldClock(new Date().getTime(), offset, timezone);
+			currentTimezoneWidget = new WorldClockWidget("worldclock-widget-current-w", "cwid", "span2", {"no_close": true});
+			currentTimezoneWidget.attach(wc);
+
+			currentTimezone = timezone;
+			currentTimezoneOffset = offset;
+		}
+	}
+
 	function refreshWcWidgets() {
 		var rawms = new Date().getTime();
 
 		for (var i in wcWidgets) {
 			var wc = new WorldClock(rawms, wcWidgets[i][1][1], wcWidgets[i][1][0]);
 			wcWidgets[i][0].refresh(wc);
+		}
+
+		if (currentTimezoneWidget) {
+			var cwc = new WorldClock(rawms, currentTimezoneOffset, currentTimezone);
+			currentTimezoneWidget.refresh(cwc);
 		}
 
 		setTimeout(refreshWcWidgets, 1000);
@@ -136,6 +157,11 @@ $(function(){
 
 	loadRegions();
 	loadWcWidgets();
+
+	if (typeof selected_timezone === "string") {
+		loadCurrentTimezoneWidget(selected_timezone);
+	}
+	
 	setTimeout(refreshWcWidgets, 1000);
 
 	$("#add-tz").click(function(){
@@ -179,8 +205,8 @@ $(function(){
 });
 
 
-function WorldClockWidget(parentDiv, name, className) {
-	this.init(parentDiv, name, className);
+function WorldClockWidget(parentDiv, name, className, options) {
+	this.init(parentDiv, name, className, options);
 }
 
 WorldClockWidget.prototype = {
@@ -220,6 +246,13 @@ WorldClockWidget.prototype = {
 	widget: null,
 
 	/** 
+	 * Whether or not there is a close button for the widget
+	 *
+	 * @type boolean
+	 */
+	noClose: false,
+
+	/** 
 	 * Initialize the widget
 	 *
 	 * @param String
@@ -227,10 +260,16 @@ WorldClockWidget.prototype = {
 	 * @param WorldClock
 	 * @return WorldClockWidget
 	 */
-	init: function(parentDiv, name, className) {
+	init: function(parentDiv, name, className, options) {
 		this.parentDiv = parentDiv;
 		this.name = name;
 		this.className = className;
+
+		if (typeof options === "object") {
+			if (typeof options["no_close"] !== "undefined" && options["no_close"]) {
+				this.noClose = true;
+			}
+		}
 
 		return this;
 	},
@@ -251,7 +290,11 @@ WorldClockWidget.prototype = {
 
 			// Generate the html content for the widget
 			s += '<div id="worldclock-widget-' + this.name + '" class="' + cls + '">';
-			s += '<a class="close" id="delete-' + this.name + '" href="javascript:void(0);">&times;</a>';
+
+			if (!this.noClose) {
+				s += '<a class="close" id="delete-' + this.name + '" href="javascript:void(0);">&times;</a>';
+			}
+			
 			s += '<p class="wc-timezone">' + this.formatTimezoneLabel(wc.timezone) + '</p>';
 			s += '<p class="wc-week-day">' + wc.currentDay + '</p>';
 			s += '<p class="wc-date">' + wc.currentDate + '</p>';

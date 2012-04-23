@@ -141,6 +141,16 @@ Route::set('extra_sprint', 'extra/sprint(/<letter>)', array('letter' => '[a-z]')
 	));
 
 /** 
+ * Route for worldclock
+ */
+Route::set('worldclock', 'extra/tools/worldclock(/<ident1>(/<ident2>(/<ident3>)))', array('ident1' => '[-_+a-zA-Z0-9]+', 'ident2' => '[-_+a-zA-Z0-9]+', 'ident3' => '[-_+a-zA-Z0-9]+'))
+	->defaults(array(
+		'controller' => 'tools',
+		'action' => 'worldclock',
+		'directory' => 'extra'
+	));
+
+/** 
  * Route for extra group of controllers
  */
 Route::set('extra', 'extra(/<controller>(/<action>(/<id>)))')

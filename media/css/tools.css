@@ -31,3 +31,8 @@
 .wc-date {
 	margin: 0;
 }
+
+#timezone-list li {
+	float: left;
+	width: 240px;
+}

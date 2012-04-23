@@ -30,21 +30,6 @@ class Controller_Extra_Tools extends Controller_Cached
 	
 	public function action_worldclock()
 	{
-		$this->view = View::factory('extra/tools/worldclock');
-
-		$this->template->title = 'Tools :: World Clock';
-		$this->template->description = 'Extras - Tools - World Clock';
-		$this->template->keywords = 'world, clock, timezone';
-		
-		$this->template->scripts[] = $this->asset->asset_url('/media/js/json2_min.js');
-		$this->template->scripts[] = $this->asset->asset_url('/media/js/cookiegroup.js');
-		$this->template->scripts[] = $this->asset->asset_url('/media/js/worldclock.js');
-		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
-		$this->template->styles[$this->asset->asset_url('/media/css/tools.css')] = 'screen, projection';
-		
-		$this->template->show_google_plusone = true;
-		$this->template->show_facebook_like = true;
-		
 		// Generate timezone list and offsets
 		$tzlist = array();
 		$regions = array(
@@ -77,7 +62,60 @@ class Controller_Extra_Tools extends Controller_Cached
 			$tzlist[$name] = $tmp;
 		}
 
-		$this->template->head_scripts = sprintf('var tzlist = %s;', json_encode($tzlist));
+		// Detect timezone from the url if there are any
+		$urltz = array();
+		$selected_timezone = NULL;
+		$idents = array('ident1', 'ident2', 'ident3');
+		
+		foreach ($idents as $key)
+		{
+			$identifier = $this->request->param($key);
+
+			if ($identifier)
+			{
+				$urltz[] = $identifier;
+			}
+		}
+		if ( ! empty($urltz))
+		{
+			$selected_timezone = implode('/', $urltz);
+
+			if ( ! isset($tzlist['ALL'][$selected_timezone]))
+			{
+				$selected_timezone = NULL;
+			}
+		}
+
+		$this->view = View::factory('extra/tools/worldclock');
+
+		$page_title = 'Tools :: World Clock';
+		$page_desc = 'Extras - Tools - World Clock';
+		$formatted_timezone = NULL;
+
+		if ($selected_timezone)
+		{
+			$formatted_timezone = str_replace('_', ' ', $selected_timezone);
+			$page_title = $formatted_timezone.' - World Clock';
+			$page_desc = $formatted_timezone.' - World Clock';
+		}
+
+		$this->template->title = $page_title;
+		$this->template->description = $page_desc;
+		$this->template->keywords = 'world, clock, timezone';
+		
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/json2_min.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/cookiegroup.js');
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/worldclock.js');
+		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
+		$this->template->styles[$this->asset->asset_url('/media/css/tools.css')] = 'screen, projection';
+		
+		$this->template->show_google_plusone = true;
+		$this->template->show_facebook_like = true;
+
+		$this->template->head_scripts = sprintf('var tzlist = %s; var selected_timezone = %s', json_encode($tzlist), json_encode($selected_timezone));
+		$this->view->timezones = $tzlist['ALL'];
+		$this->view->selected_timezone = $selected_timezone;
+		$this->view->formatted_timezone = $formatted_timezone;
 	}
 
 	public function action_base64()
