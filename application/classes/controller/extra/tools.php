@@ -76,7 +76,7 @@ class Controller_Extra_Tools extends Controller_Cached
 			
 			$tzlist[$name] = $tmp;
 		}
-		
+
 		$this->template->head_scripts = sprintf('var tzlist = %s;', json_encode($tzlist));
 	}
 

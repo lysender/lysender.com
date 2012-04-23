@@ -6,17 +6,27 @@ $(function(){
 		var cg = CookieGroupHandler.getCookieInstance('lys10years');
 		var widgets = cg.getValue('widgets');
 		var rawms = new Date().getTime();
+		var validCookie = true;
 		
 		if (widgets && typeof widgets == "object" && widgets.length) {
 			for (var i in widgets) {
-				if (typeof widgets[i] == "object" && widgets[i] && widgets[i].length == 2) {
-					var wc = new WorldClock(rawms, widgets[i][1], widgets[i][0]);
+				var tz = widgets[i];
+				var offset = getTimezonOffsetFromList(tz);
+
+				if (tz && offset) {
+					var wc = new WorldClock(rawms, offset, tz);
 					var wcw = new WorldClockWidget("workdclock-widget-w", "wid-" + i, "span2");
 					wcw.attach(wc);
 
-					wcWidgets.push([wcw, widgets[i]]);
+					wcWidgets.push([wcw, [tz, offset]]);
+				} else {
+					validCookie = false;
 				}
 			}
+		}
+
+		if (!validCookie) {
+			cg.removeValue('widgets').writeGroup();
 		}
 	}
 
@@ -63,6 +73,19 @@ $(function(){
 			cg.setValue('widgets', widgets);
 	        cg.writeGroup();
 		}
+	}
+
+	function getTimezonOffsetFromList(timezone) {
+		if (timezone && typeof tzlist !== "undefined" && typeof tzlist["ALL"] !== "undefined") {
+			if (typeof tzlist["ALL"][timezone] !== "undefined") {
+				var offset = parseInt(tzlist["ALL"][timezone]);
+				if (!isNaN(offset)) {
+					return offset;
+				}
+			}
+		}
+
+		return null;
 	}
 
 	function loadRegions() {
@@ -126,9 +149,9 @@ $(function(){
 		}
 
 		if (widgets) {
-			widgets.push(wconfig);
+			widgets.push(wconfig[0]);
 		} else {
-			widgets = [wconfig];
+			widgets = [wconfig[0]];
 		}
 
 		cg.setValue('widgets', widgets);
