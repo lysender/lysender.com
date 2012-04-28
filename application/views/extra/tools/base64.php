@@ -7,7 +7,7 @@
 		<div class="row">
 	
 			<div class="span11">
-				<h2 class="fancy">Base64 Encoder/Decoder</h2>
+				<h2 class="fancy"><a href="<?php echo URL::site('/extra/tools/base64', TRUE) ?>">Base64 Encoder/Decoder</a></h2>
 			</div>
 	
 			<div class="project-info span11">

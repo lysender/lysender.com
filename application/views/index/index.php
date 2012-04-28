@@ -8,4 +8,4 @@
 CSS and Javascript. Job gets done using tools and frameworks such as
 <a href="http://www.jquery.com/">jQuery</a>, <a href="http://framework.zend.com/">Zend Framework</a>,
 <a href="http://www.kohanaframework.org/">Kohana Framework</a> and
-<a href="http://www.bluetrip.org/">BlueTrip CSS Framework</a>.</p>
+<a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap UI Framework</a>.</p>

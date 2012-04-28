@@ -6,7 +6,7 @@
 	<div class="about-info span8">
 		<div class="row">
 			<div class="span8">
-				<h2 class="fancy">Google Chrome Time-in Time-out Extension</h2>
+				<h2 class="fancy"><a href="<?php echo URL::site('/projects/chrome-time-in-time-out', TRUE) ?>">Google Chrome Time-in Time-out Extension</a></h2>
 			</div>
 			
 			<div class="project-info span8">

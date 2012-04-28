@@ -4,7 +4,7 @@
 	</div>
 	
 	<div class="about-info span8">
-		<h2 class="fancy">Contact</h2>
+		<h2 class="fancy"><a href="<?php echo URL::site('/contact', TRUE) ?>">Contact</a></h2>
 		
 		<p>Because of some web host limitations, Lysender cannot setup a mailer script
 		for this site. However, you can directly send email to lysender at:<br />

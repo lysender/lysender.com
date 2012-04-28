@@ -6,18 +6,18 @@
 	<div class="about-info span11">
 		<div class="row">
 			<div class="span11">
-				<h2 class="fancy">Sprint Name Generator</h2>
+				<h2 class="fancy"><a href="<?php echo URL::site('/extra/sprint', TRUE) ?>">Sprint Name Generator</a></h2>
 				
 				<p>Select a letter from the list below and suggestions will be shown.</p>
 			
 				<h3 id="sprint-letters" class="thin">
 				<?php foreach ($letters as $l): ?>
-					<a href="/extra/sprint/<?php echo $l ?>"><?php echo strtoupper($l) ?></a>
+					<a href="<?php echo URL::site('/extra/sprint/'.$l, TRUE) ?>"><?php echo strtoupper($l) ?></a>
 				<?php endforeach ?>
 				</h3>
 			
 				<?php if (isset($letter)): ?>
-				<p><a href="<?php echo URL::site('/extra/sprint') ?>">Back to sprint name index</a></p>
+				<p><a href="<?php echo URL::site('/extra/sprint', TRUE) ?>">Back to sprint name index</a></p>
 				<div class="project-info">
 					<h4 class="thin positive">Sprint name suggestions for letter "<?php echo strtoupper($letter) ?>"</h4>
 			

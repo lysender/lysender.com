@@ -7,7 +7,7 @@
 		<div class="row">
 	
 			<div class="span11">
-				<h2 class="fancy">URL Encoder/Decoder</h2>
+				<h2 class="fancy"><a href="<?php echo URL::site('/extra/tools/urlencode', TRUE) ?>">URL Encoder/Decoder</a></h2>
 			</div>
 	
 			<div class="project-info span11">

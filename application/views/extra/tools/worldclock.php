@@ -7,7 +7,7 @@
 		<div class="row">
 	
 			<div class="span11">
-				<h2 class="fancy"><a href="/extra/tools/worldclock">World Clock</a></h2>
+				<h2 class="fancy"><a href="<?php echo URL::site('/extra/tools/worldclock', TRUE) ?>">World Clock</a></h2>
 				
 				<p>This tool allows you to define your word clock widget as many as you like and display them for quick reference.<br />
 				The widgets created are saved so that they will be displayed on your next visit.</p>
@@ -50,7 +50,7 @@
 				<p>Timezones around the world.</p>
 				<ul id="timezone-list">
 					<?php foreach ($timezones as $tz => $offset): ?>
-						<li><a href="/extra/tools/worldclock/<?php echo HTML::chars($tz) ?>"><?php echo HTML::chars($tz) ?></a></li>
+						<li><a href="<?php echo URL::site('/extra/tools/worldclock/'.HTML::chars($tz), TRUE) ?>"><?php echo HTML::chars($tz) ?></a></li>
 					<?php endforeach ?>
 				</ul>
 			</div>

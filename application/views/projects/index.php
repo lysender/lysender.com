@@ -6,7 +6,7 @@
 	<div class="about-info span10">
 		<div class="row">
 			<div class="span10">
-				<h2 class="fancy">Projects</h2>
+				<h2 class="fancy"><a href="<?php echo URL::site('/projects', TRUE) ?>">Projects</a></h2>
 				
 				<p>For almost three (3) years in web development, Lysender develops and
 				maintains the following projects:</p>

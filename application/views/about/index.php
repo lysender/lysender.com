@@ -4,7 +4,7 @@
 	</div>
 	
 	<div class="about-info span8">
-		<h2 class="fancy">About</h2>
+		<h2 class="fancy"><a href="<?php echo URL::site('/about', TRUE) ?>">About</a></h2>
 		
 		<p>Lysender is a <?php echo $age ?> year-old web developer from
 		Antipolo City, Rizal Philippines. He is currently employed as a PHP Developer
