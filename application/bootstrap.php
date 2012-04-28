@@ -74,7 +74,7 @@ define('GENERIC_SALT', 'dJkrTa12s9as200d0783dss');
 /**
  * Defines the version of the application
  */
-define('APP_VERSION', '0.7.0');
+define('APP_VERSION', '0.8.0');
 
 /**
  * Initialize Kohana, setting the default options.
@@ -120,6 +120,15 @@ if (Kohana::$environment === Kohana::TESTING)
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules($modules);
+
+/** 
+ * Route for sitemap.xml
+ */
+Route::set('sitemap', 'sitemap.xml')
+	->defaults(array(
+		'controller' => 'sitemap',
+		'action' => 'index'
+	));
 
 /** 
  * Route for chrome-time-in-time-out
