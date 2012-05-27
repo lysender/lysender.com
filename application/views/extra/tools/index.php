@@ -34,5 +34,13 @@
 			
 			<p><a href="<?php echo URL::site('/extra/tools/base64', TRUE) ?>">Base64 Encoder/Decoder</a>.</p>
 		</div>
+
+		<div class="project-info">
+			<h4>4. Sum First Column of File</h4>
+			
+			<p>Sums up the first column of the file contents. Just paste the file contents then click a button. Useful when summing up hourly error log files with occurrence number at the first column. </p>
+			
+			<p><a href="<?php echo URL::site('/extra/tools/sumfirstcol', TRUE) ?>">Sum First Column of File</a>.</p>
+		</div>
 	</div>
 </div>
