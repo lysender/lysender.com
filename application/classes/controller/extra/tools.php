@@ -137,4 +137,20 @@ class Controller_Extra_Tools extends Controller_Cached
 		$this->template->show_google_plusone = true;
 		$this->template->show_facebook_like = true;
 	}
+
+	public function action_sumfirstcol()
+	{
+		$this->view = View::factory('extra/tools/sumfirstcol');
+
+		$this->template->title = 'Tools :: Sum First Column of File';
+		$this->template->description = 'Extras - Tools - Sum First Column of File';
+		$this->template->keywords = 'column, sum first column, error log';
+
+		$this->template->scripts[] = $this->asset->asset_url('/media/js/sumfirstcol.js');
+		$this->template->styles[$this->asset->asset_url('/media/bootstrap/css/bootstrap-responsive.min.css')] = 'screen, projection';
+		$this->template->styles[$this->asset->asset_url('/media/css/tools.css')] = 'screen, projection';
+		
+		$this->template->show_google_plusone = true;
+		$this->template->show_facebook_like = true;
+	}
 }

@@ -13,6 +13,7 @@ return array(
 		array('/extra/tools/urlencode', 0.8),
 		array('/extra/tools/worldclock', 0.8),
 		array('/extra/tools/base64', 0.8),
+		array('/extra/tools/sumfirstcol', 0.8),
 	),
 	'weekly' => array(
 		array('/extra/sprint/e', 0.5),

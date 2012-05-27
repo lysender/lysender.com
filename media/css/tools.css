@@ -36,3 +36,13 @@
 	float: left;
 	width: 240px;
 }
+
+#texttosum {
+	height: 215px;
+	white-space: nowrap; 
+	overflow: auto;
+}
+
+#sumresult {
+	height: 55px;
+}
