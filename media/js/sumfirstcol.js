@@ -29,4 +29,9 @@ $(function(){
 
 		$("#sumresult").val(result);
 	});
+
+	$("#clearitup").click(function(){
+		var text = $("#texttosum").val("");
+		$("#sumresult").val("");
+	});
 });
