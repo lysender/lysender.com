@@ -18,7 +18,7 @@ return array(
 	),
 	Kohana::PRODUCTION => array(
 		'protocol' => 'http',
-		'domain' => 's.lysender.com',
-		'path_prefix' => '/ly'
+		'domain' => 'www.lysender.com',
+		'path_prefix' => ''
 	)
 );
