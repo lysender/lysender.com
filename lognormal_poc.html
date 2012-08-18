@@ -1,0 +1,30 @@
+<html>
+<head><title>Sample Log Normal Implementation</title>
+<script type="text/javascript">    
+    /*BOF: Add LogNormal */
+    
+   	LOGN = {};
+		LOGN.page_group = "Home Page";
+		
+	var google_key = 'eb24b9842c1dd71a6dff18e4a4daa7be1f61e6fcd595ca2e584b5042';
+
+	if(document.domain == 'm.autopartswarehouse.com'){
+		google_key = '19fc86ae21db7c0f6e3057c3ecc6a4e9b2806adb084cd868e224e355';
+	}
+		
+	(function(d, s) {
+	  var js = d.getElementsByTagName(s)[0],
+	      ln = d.createElement(s);
+      BOOMR_lstart=new Date().getTime();
+	  ln.src = '//lognormal.net/boomerang/' + google_key;
+	  js.parentNode.insertBefore(ln, js);
+	})(document, 'script');
+
+	
+/*EOF: Add LogNormal */
+</script>
+</head>
+<body>
+<div>Hello World</div>
+</body>
+</html>
